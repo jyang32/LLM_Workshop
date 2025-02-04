@@ -7527,7 +7527,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>June Yang, CSDE and eScience Institute, Winter 2024</p>
+<p>June Yang, CSDE and eScience Institute, Winter 2025</p>
 </div>
 </div>
 </div>
@@ -7554,9 +7554,10 @@ a.anchor-link {
 <h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h1><ul>
 <li><a href="#resources-and-materials">Resources and Materials</a></li>
 <li><a href="#what-is-a-generative-llm">What is a generative LLM?</a></li>
-<li><a href="#the-use-of-generative-llms-for-the-social-sciences">The use of generative LLMs for the social sciences</a><ul>
-<li><a href="#how-to-use-generative-llms-beyond-chat">How to use generative LLMs beyond chat?</a></li>
-<li><a href="#using-chat-completion-for-text-annotation">Using Chat Completion for Text Annotation</a><ul>
+<li><a href="#the-use-of-generative-llms-for-the-social-sciences">The use of generative LLMs for the social sciences</a></li>
+<li><a href="#implementation-using-langchain">Implementation using <code>LangChain</code></a><ul>
+<li><a href="#introducing-the-langchain-package">Introducting the <code>LangChain</code> package</a></li>
+<li><a href="#using-chat-completion-for-text-annotation">Case 1: Using Chat Completion for Text Annotation</a><ul>
 <li><a href="#step-1-models-llm-wrappers">Models (LLM Wrappers)</a></li>
 <li><a href="#step-2-prompts">Prompts</a></li>
 <li><a href="#step-3-chains">Chains</a></li>
@@ -7564,13 +7565,13 @@ a.anchor-link {
 <li><a href="#model-selection">Model Selection</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#advanced-topic-embeddings-rag-and-vector-stores">Advanced Topic: Embeddings, RAG, and Vector Stores</a><ul>
+<li><a href="#advanced-topic-embeddings-rag-and-vector-stores">Case 2: Embeddings, RAG, and Vector Stores</a><ul>
 <li><a href="#what-is-word-embedding">What is word embedding</a></li>
 <li><a href="#what-is-rag">What is RAG?</a><ul>
 <li><a href="#differences-between-rag-and-fine-tuning">Differences between RAG and Fine-Tuning</a></li>
 <li><a href="#how-to-implement-rag">How to implement RAG?</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -7641,7 +7642,7 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Generative vs. Discriminative Models</p>
 <ul>
-<li><p>Generative Models: These models learn to generate new data instances that resemble the training data. In language models, this means they can produce text, complete sentences, and engage in open-ended tasks like translation or summarization. Examples include GPT (Generative Pre-trained Transformer) and other models built on transformer architectures.</p>
+<li><p>Generative Models: These models learn to generate new data instances that resemble the training data. In language models, this means they can produce text, complete sentences, and engage in open-ended tasks like translation or summarization. Examples include probablistic generative models, neural generative models such as GPT (Generative Pre-trained Transformer), as well as hybrid models (e.g. topic guided transformers).</p>
 </li>
 <li><p>Discriminative (or Classifier) Models: These models focus on making predictions or classifications based on input data. For example, they might classify sentiment, identify named entities, or categorize topics. Models like BERT (Bidirectional Encoder Representations from Transformers) are discriminative since they’re optimized for predicting specific labels given input text, such as in sentiment analysis or question answering.</p>
 </li>
@@ -7745,7 +7746,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="How-to-use-generative-LLMs-beyond-chat?">How to use generative LLMs beyond chat?<a class="anchor-link" href="#How-to-use-generative-LLMs-beyond-chat?">¶</a></h1>
+<h1 id="Implementation-using-LangChain">Implementation using <code>LangChain</code><a class="anchor-link" href="#Implementation-using-LangChain">¶</a></h1>
 </div>
 </div>
 </div>
@@ -7791,7 +7792,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Using-Chat-Completion-for-Text-Annotation">Using Chat Completion for Text Annotation<a class="anchor-link" href="#Using-Chat-Completion-for-Text-Annotation">¶</a></h2>
+<h3 id="Case-1:-Using-Chat-Completion-for-Text-Annotation">Case 1: Using Chat Completion for Text Annotation<a class="anchor-link" href="#Case-1:-Using-Chat-Completion-for-Text-Annotation">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7814,7 +7815,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>What is the paper doing?</p>
-<p>This paper introduces the <em>WHAT</em> and <em>HOW</em> of using LLMs for text analysis, specifically focusing on the use of chat completion for text annotation. It offers an example of using the OpenAI API and model gpt-4 to annotate the level of populism in political speeches. Note that this is a creative and customized measurement that can be generated based on theorecial knowledge, traditionally done by human annotators. In the example below, we will be reproducing the paper, but not using the OpenAI python library. Rather, we will use the <code>LangChain</code> package to implement the same task.</p>
+<p>This paper introduces the <em>WHAT</em> and <em>HOW</em> on using LLMs for text analysis, specifically focusing on the use of chat completion for text annotation. It offers an example of using the OpenAI API and model gpt-4 to annotate the level of populism in political speeches. Note that this is a creative and customized measurement that can be generated based on theorecial knowledge, traditionally done by human annotators. In the example below, we will be reproducing the paper, but not entirely using the OpenAI python library. Rather, we will mainly use the <code>LangChain</code> package to implement the same task.</p>
 </div>
 </div>
 </div>
@@ -7893,7 +7894,7 @@ a.anchor-link {
 </ul>
 </li>
 </ul>
-<p>This API-based approach allows researchers and developers to leverage powerful LLM capabilities without needing to host or maintain the models themselves. For an example, see the <a href="hhttps://platform.openai.com/docs/api-reference/introduction">OpenAI API Reference</a>, <a href="https://platform.openai.com/playground">playground</a>, and <a href="https://openai.com/api/pricing/">pricing</a> page. Of course, with the lastest development of DeepSeek, hosting your own model has become an option as well (actually, a preferable option).</p>
+<p>This API-based approach allows researchers and developers to leverage powerful LLM capabilities without needing to host or maintain the models themselves. For an example, see the <a href="https://platform.openai.com/docs/api-reference/introduction">OpenAI API Reference</a>, <a href="https://platform.openai.com/playground">playground</a>, and <a href="https://openai.com/api/pricing/">pricing</a> page. Of course, with the lastest development of DeepSeek, hosting your own model has become an option as well (actually, a preferable option).</p>
 </div>
 </div>
 </div>
@@ -7915,7 +7916,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-1.-Models-(LLM-Wrappers)">Step 1. Models (LLM Wrappers)<a class="anchor-link" href="#Step-1.-Models-(LLM-Wrappers)">¶</a></h3>
+<h4 id="Step-1.-Models-(LLM-Wrappers)">Step 1. Models (LLM Wrappers)<a class="anchor-link" href="#Step-1.-Models-(LLM-Wrappers)">¶</a></h4>
 </div>
 </div>
 </div>
@@ -8431,7 +8432,7 @@ memory usage: 32.9+ KB
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-2.-Prompts">Step 2. Prompts<a class="anchor-link" href="#Step-2.-Prompts">¶</a></h3>
+<h4 id="Step-2.-Prompts">Step 2. Prompts<a class="anchor-link" href="#Step-2.-Prompts">¶</a></h4>
 </div>
 </div>
 </div>
@@ -8735,7 +8736,7 @@ First few results:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-4.-Validation">Step 4. Validation<a class="anchor-link" href="#Step-4.-Validation">¶</a></h3>
+<h4 id="Step-4.-Validation">Step 4. Validation<a class="anchor-link" href="#Step-4.-Validation">¶</a></h4>
 </div>
 </div>
 </div>
@@ -9030,7 +9031,7 @@ Name: count, dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Model-Selection">Model Selection<a class="anchor-link" href="#Model-Selection">¶</a></h3>
+<h4 id="Model-Selection">Model Selection<a class="anchor-link" href="#Model-Selection">¶</a></h4>
 </div>
 </div>
 </div>
@@ -9041,7 +9042,7 @@ Name: count, dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>I recommend two studies on LLM model selection:</p>
+<p>Cova and Schmitz (2024) recommend two studies on LLM model selection:</p>
 <p>Törnberg's six principles for model selection:</p>
 <ul>
 <li>Reproducibility</li>
@@ -9052,7 +9053,7 @@ Name: count, dtype: int64
 <li>Complexity</li>
 </ul>
 <p>The teacher-student model proposed by Weber and Reichardt (2024):</p>
-<img alt="No description has been provided for this image" height="400" src="data/image.png" width="400"/>
+<img alt="No description has been provided for this image" height="400" src="image.png" width="400"/>
 </div>
 </div>
 </div>
@@ -9063,7 +9064,7 @@ Name: count, dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Advanced-Topic:-Embeddings,-RAG,-and-Vector-Stores">Advanced Topic: Embeddings, RAG, and Vector Stores<a class="anchor-link" href="#Advanced-Topic:-Embeddings,-RAG,-and-Vector-Stores">¶</a></h2>
+<h3 id="Case-2:-Embeddings,-RAG,-and-Vector-Stores">Case 2: Embeddings, RAG, and Vector Stores<a class="anchor-link" href="#Case-2:-Embeddings,-RAG,-and-Vector-Stores">¶</a></h3>
 </div>
 </div>
 </div>
@@ -9074,7 +9075,7 @@ Name: count, dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="What-is-word-embedding">What is word embedding<a class="anchor-link" href="#What-is-word-embedding">¶</a></h3>
+<h4 id="What-is-word-embedding">What is word embedding<a class="anchor-link" href="#What-is-word-embedding">¶</a></h4>
 </div>
 </div>
 </div>
@@ -9103,7 +9104,7 @@ Name: count, dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="What-is-RAG?">What is RAG?<a class="anchor-link" href="#What-is-RAG?">¶</a></h3>
+<h4 id="What-is-RAG?">What is RAG?<a class="anchor-link" href="#What-is-RAG?">¶</a></h4>
 </div>
 </div>
 </div>
@@ -9201,7 +9202,7 @@ Name: count, dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="How-to-implement-RAG?">How to implement RAG?<a class="anchor-link" href="#How-to-implement-RAG?">¶</a></h3>
+<h4 id="How-to-implement-RAG?">How to implement RAG?<a class="anchor-link" href="#How-to-implement-RAG?">¶</a></h4>
 </div>
 </div>
 </div>
@@ -9269,7 +9270,7 @@ Name: count, dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Set-up-the-prompt-template">Set up the prompt template<a class="anchor-link" href="#Set-up-the-prompt-template">¶</a></h4>
+<h5 id="Set-up-the-prompt-template">Set up the prompt template<a class="anchor-link" href="#Set-up-the-prompt-template">¶</a></h5>
 </div>
 </div>
 </div>
@@ -9375,7 +9376,7 @@ Name: count, dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Reading-in-the-transcript-as-context">Reading in the transcript as context<a class="anchor-link" href="#Reading-in-the-transcript-as-context">¶</a></h4>
+<h5 id="Reading-in-the-transcript-as-context">Reading in the transcript as context<a class="anchor-link" href="#Reading-in-the-transcript-as-context">¶</a></h5>
 </div>
 </div>
 </div>
@@ -9631,7 +9632,7 @@ Name: count, dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="What-is-a-Vector-Store?">What is a Vector Store?<a class="anchor-link" href="#What-is-a-Vector-Store?">¶</a></h4>
+<h5 id="What-is-a-Vector-Store?">What is a Vector Store?<a class="anchor-link" href="#What-is-a-Vector-Store?">¶</a></h5>
 </div>
 </div>
 </div>
@@ -9904,7 +9905,7 @@ Name: count, dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Performance-Evaluation">Performance Evaluation<a class="anchor-link" href="#Performance-Evaluation">¶</a></h4>
+<h5 id="Performance-Evaluation">Performance Evaluation<a class="anchor-link" href="#Performance-Evaluation">¶</a></h5>
 </div>
 </div>
 </div>
