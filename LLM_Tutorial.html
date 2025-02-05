@@ -8144,12 +8144,6 @@ a.anchor-link {
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">First few rows:"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-
-<span class="c1"># Print a sample of text from each row to verify encoding</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Sample of first 100 characters from each text:"</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'speech_name'</span><span class="p">]</span><span class="si">}</span><span class="s2">:"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'text'</span><span class="p">][:</span><span class="mi">100</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -8177,7 +8171,37 @@ First few rows:
 2  Држава Србија је забринута што је изостала реа...  
 3                                                     
 4  A Cabinet Minister is sitting having a pub lun...  
-
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=62ed9dd9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Print a sample of text from each row to verify encoding</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Sample of first 100 characters from each text:"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'speech_name'</span><span class="p">]</span><span class="si">}</span><span class="s2">:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'text'</span><span class="p">][:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
 Sample of first 100 characters from each text:
 
 Nicaragua_Ortega_Famous_1:
@@ -8219,7 +8243,7 @@ A Cabinet Minister is sitting having a pub lunch when a member of the public acc
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.text_splitter</span> <span class="kn">import</span> <span class="n">RecursiveCharacterTextSplitter</span>
@@ -8276,7 +8300,7 @@ A Cabinet Minister is sitting having a pub lunch when a member of the public acc
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get length of chunks list for each row</span>
@@ -8355,7 +8379,7 @@ Name: chunk_count, dtype: float64
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Remove rows where chunks list is empty</span>
@@ -8393,7 +8417,7 @@ Removed 111 speeches
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -8452,7 +8476,7 @@ memory usage: 32.9+ KB
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.prompts</span> <span class="kn">import</span> <span class="n">ChatPromptTemplate</span>
@@ -8533,7 +8557,7 @@ memory usage: 32.9+ KB
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">test_chunk</span> <span class="o">=</span> <span class="n">df_clean</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'chunks'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -8597,7 +8621,7 @@ Plaza de la Revolución
 
 LLM Response:
 Score: 2
-Justification: The text focuses heavily on "the people" and their empowerment, presenting them as the driving force behind change. It also criticizes the elite, particularly in relation to economic disparities and exploitation. The language used emphasizes a moral struggle between the people and the elite, aligning with the key elements of populism.
+Justification: The text focuses heavily on "the people" and their empowerment, presenting them as the driving force behind change. It also criticizes the elite, particularly in relation to economic injustices and environmental issues, portraying them as the source of societal problems. This aligns with both elements of populism - people-centrism and anti-elitism.
 </pre>
 </div>
 </div>
@@ -8614,12 +8638,12 @@ Justification: The text focuses heavily on "the people" and their empowerment, p
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ad2648b8">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ad2648b8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create the chain</span>
@@ -8634,7 +8658,7 @@ Justification: The text focuses heavily on "the people" and their empowerment, p
     
     <span class="k">for</span> <span class="n">chunk_idx</span><span class="p">,</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'chunks'</span><span class="p">]):</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">"text"</span><span class="p">:</span> <span class="n">test_chunk</span><span class="p">})</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">"text"</span><span class="p">:</span> <span class="n">chunk</span><span class="p">})</span>
             
             <span class="k">if</span> <span class="s1">';'</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
                 <span class="n">score_part</span><span class="p">,</span> <span class="n">justification</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">';'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -8666,12 +8690,29 @@ Justification: The text focuses heavily on "the people" and their empowerment, p
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
+Error in Speech: Italy_Berlusconi_Famous_2
+Chunk 0
+Response causing error: [score]; [brief justification]
+Error type: ValueError
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3691105c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create final results dataframe</span>
@@ -8693,7 +8734,7 @@ Justification: The text focuses heavily on "the people" and their empowerment, p
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Processed 1050 speeches
+<pre>Processed 1045 speeches
 
 First few results:
                         speech_name  populism_score  num_chunks_processed  \
@@ -8701,14 +8742,14 @@ First few results:
 1            France_Chirac_Famous_1             2.0                     1   
 2             Serbia_Tadic_Famous_1             2.0                     1   
 3                 UK_Blair_Ribbon_3             2.0                     1   
-4  Malaysia_Mohamad_International_1             2.0                     1   
+4  Malaysia_Mohamad_International_1             1.0                     1   
 
                                       justifications  
-0  [The text heavily emphasizes the "people" and ...  
-1  [The text focuses on the "people" as the centr...  
-2  [The text focuses heavily on the "people" and ...  
-3  [The text heavily emphasizes the importance of...  
-4  [The text focuses heavily on the "people" as t...  
+0  [The text focuses heavily on the "Poder Ciudad...  
+1  [This text contains strong elements of populis...  
+2  [The text contains strong elements of people-c...  
+3  [This political text contains a strong emphasi...  
+4  [The speech does contain elements of populism,...  
 </pre>
 </div>
 </div>
@@ -8719,7 +8760,7 @@ First few results:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Save to CSV</span>
@@ -8758,7 +8799,7 @@ First few results:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -8795,8 +8836,8 @@ First few results:
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Number of speeches in original df: 1050
-Number of speeches in results_df: 1050
-Number of matched speeches: 1050
+Number of speeches in results_df: 1045
+Number of matched speeches: 1045
 </pre>
 </div>
 </div>
@@ -8818,7 +8859,7 @@ Number of matched speeches: 1050
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Find speeches that weren't processed by the model</span>
@@ -8847,8 +8888,8 @@ Number of matched speeches: 1050
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Analysis of missing annotations:
 Total speeches in original dataset: 1161
-Speeches processed by model: 1050
-Speeches missing annotations: 111
+Speeches processed by model: 1045
+Speeches missing annotations: 116
 
 Sample of unprocessed speeches:
                                speech_name chunks
@@ -8878,7 +8919,7 @@ Sample of unprocessed speeches:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Examine the original text of speeches with empty chunks</span>
@@ -8950,7 +8991,7 @@ Is text empty? True
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Prepare data for Krippendorff's alpha</span>
@@ -8996,28 +9037,34 @@ Is text empty? True
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>
-Krippendorff's alpha: 0.42745351735398507
+Krippendorff's alpha: 0.14290605452814387
 
 Agreement Statistics:
-Exact matches: 32.38%
-Average difference: 1.01
+Exact matches: 31.00%
+Average difference: 0.90
 
 Score Distribution:
 LLM Scores:
 populism_score
-1.00     46
-1.50      2
-1.67      5
+0.00     28
+0.50      1
+0.75      1
+1.00    358
+1.25      1
+1.33      3
+1.40      2
+1.50     23
+1.60      2
+1.67      8
 1.75      1
-1.80      1
-2.00    995
+2.00    617
 Name: count, dtype: int64
 
 Ground Truth:
 ground_truth
-0    372
-1    339
-2    339
+0    370
+1    337
+2    338
 Name: count, dtype: int64
 </pre>
 </div>
@@ -9946,6 +9993,7 @@ Name: count, dtype: int64
 <li>Argyle, Lisa P., Ethan C. Busby, Nancy Fulda, Joshua R. Gubler, Christopher Rytting, and David Wingate. (2023). Out of One, Many: Using Language Models to Simulate Human Samples. Political Analysis, 31(3), 337–51. <a href="https://doi.org/10.1017/pan.2023.2">link</a>.</li>
 <li>Dillion, Danica, Niket Tandon, Yuling Gu, and Kurt Gray. (2023). Can AI Language Models Replace Human Participants? Trends in Cognitive Sciences, 27(7), 597–600. <a href="https://doi.org/10.1016/j.tics.2023.04.008">link</a>.</li>
 <li>Jiang, Ferrara. (2023). Social-LLM: Modeling User Behavior at Scale using Language Models and Social Network Data. <a href="https://arxiv.org/abs/2401.00893?utm_source=chatgpt.com">arXiv</a></li>
+<li>Tjuatja, Lindia, Valerie Chen, Sherry Tongshuang Wu, Ameet Talwalkar, and Graham Neubig.“Do LLMs Exhibit Human-Like Response Biases? A Case Study in Survey Design.” <a href="https://doi.org/10.48550/ARXIV.2311.04076">arXiv</a></li>
 </ul>
 </li>
 <li><p>Simulating Social Relationships</p>
