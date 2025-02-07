@@ -1,5 +1,3 @@
-# LLM_Workshop
-
 # LLM Tutorial for Social Science Research
 
 This repository contains materials for a workshop on using Large Language Models (LLMs) in social science research. The tutorial focuses on practical implementations using the `langchain` package and OpenAI's GPT-3.5-turbo model.
