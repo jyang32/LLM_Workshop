@@ -9140,11 +9140,136 @@ Name: count, dtype: int64
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>In the previous workshop, we learned about text representations where every document is represented by a (weighted) sum of the words it contains. In these models, the reprentation of a word is a <strong>one-hot encoding</strong> - a vector with one dimension per unique word in the vocabulary containing a 1 if the word is present in the document and 0 otherwise.</p>
 <p>Example: we represent a word, <em>cat</em>, using the one-hot encoding reprentation with a vector of length the size of the vocabulary <em>J</em>, where the dimension corresponding to cat is 1 and all other dimensions are 0.</p>
-<p>cat = (0,0,0,1,0,0,...0)</p>
+<p>Vocabulary = ["dog", "bird", "cat", "fish", "mouse", "rabbit"]</p>
+<p><strong>One-Hot Encoding Matrix:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Word</th>
+<th>dog</th>
+<th>bird</th>
+<th>cat</th>
+<th>fish</th>
+<th>mouse</th>
+<th>rabbit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dog</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>bird</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>cat</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>fish</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>mouse</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>rabbit</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
 <p>A consequence of this representation is that every word is treated uniquely, and the similarity between words is not captured. For example, <em>cat</em> and <em>dog</em> are completely different words, and thus represented by completely different vectors.</p>
 <p>However, in reality we know that many words have highly similar meanings. The distributed representations covered in this chapter generalize this idea by learning from external data the semantic relationships between words like <em>writer</em> and <em>author</em> even though they don't share a common stem.</p>
 <p>With the above example, we will instead represent the word <em>cat</em> by using data to estimate a dense vector of length <em>K</em>, where <em>K &lt; J</em>:</p>
-<p>cat = (1.3, 0.2,...,0.56).</p>
+<p><strong>Word Embedding Matrix:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Word</th>
+<th>dim1</th>
+<th>dim2</th>
+<th>dim3</th>
+<th>dim4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dog</td>
+<td>1.3</td>
+<td>0.2</td>
+<td>-0.5</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>bird</td>
+<td>0.9</td>
+<td>0.5</td>
+<td>-0.3</td>
+<td>0.7</td>
+</tr>
+<tr>
+<td>cat</td>
+<td>1.2</td>
+<td>0.3</td>
+<td>-0.4</td>
+<td>0.9</td>
+</tr>
+<tr>
+<td>fish</td>
+<td>0.8</td>
+<td>0.1</td>
+<td>-0.2</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td>mouse</td>
+<td>0.7</td>
+<td>0.4</td>
+<td>-0.6</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>rabbit</td>
+<td>0.6</td>
+<td>0.3</td>
+<td>-0.4</td>
+<td>0.4</td>
+</tr>
+</tbody>
+</table>
 <p>Because these techniques embed words into a common low-dimensional space (relative to the size of the vocabulary), they are called <strong>word embeddings</strong>.</p>
 </div>
 </div>
@@ -9795,6 +9920,17 @@ Name: count, dtype: int64
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c426a8b8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>With setup, we can use the <code>RunnableParallel</code> constructor to process the same question in two different ways of presenting the retrieved context as well as the question itself. The results are collected and presented in a single response.</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0393aff6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9825,6 +9961,17 @@ Name: count, dtype: int64
   Document(page_content="Mary's sister is Susana")],
  'question': "What color is Patricia's car?"}</pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=39cfe543">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The results are then passed through the prompt, the model, and the output parser to generate the final response.</p>
 </div>
 </div>
 </div>
@@ -9969,7 +10116,7 @@ Name: count, dtype: int64
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>How do we evaluate the performance of LLMs on a RAG task?</p>
-<p>Evaluating an LLM on RAG requires measuring both the retrieval effectiveness and genration quality. In the process of evaluating retrieval effectiveness, it is recommended to use multiple retrieval metrics (e.g., precision, recall, F1 scores). For an evaluation of the generation quality, we can look into factual correctness, relevance, and coherence of the generated response. A combination of automated approaches and human evaluation is always recommended.</p>
+<p>Evaluating an LLM on RAG requires measuring both the retrieval effectiveness and generation quality. In the process of evaluating retrieval effectiveness, it is recommended to use multiple retrieval metrics (e.g., precision, recall, F1 scores). For an evaluation of the generation quality, we can look into factual correctness, relevance, and coherence of the generated response. A combination of automated approaches and human evaluation is always recommended.</p>
 </div>
 </div>
 </div>
