@@ -13,7 +13,8 @@ The tutorial covers:
 ## Contents
 
 - `LLM_Tutorial.ipynb`: Main Jupyter notebook containing the tutorial
-- `data/`: Data for this tutorial is downloaded from the [Global Populism Dataset](https://populism.byu.edu/data/2019%20-%20global%20populism%20database%20(guardian%20version)).
+- `LLM_Tutorial.html`: An html file rendered from the Jupyter notebook. 
+- `data/` (gitignored but is required to run the file locally): Data for this tutorial is downloaded from the [Global Populism Dataset](https://populism.byu.edu/data/2019%20-%20global%20populism%20database%20(guardian%20version)).
   
 ## Key Topics
 
